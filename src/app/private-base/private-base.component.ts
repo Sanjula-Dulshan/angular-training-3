@@ -10,22 +10,22 @@ export class PrivateBaseComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   goToAddStudent(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['student/add'], { relativeTo: this.route });
   }
 
   goToShowStudent(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['student/show-all'], { relativeTo: this.route });
   }
   goToEditStudent(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['student/edit'], { relativeTo: this.route });
   }
   goToAddCourse(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['course/add'], { relativeTo: this.route });
   }
   goToShowCourse(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['course/show-all'], { relativeTo: this.route });
   }
   goToEditCourse(): void {
-    this.router.navigate(['add-student'], { relativeTo: this.route });
+    this.router.navigate(['course/edit'], { relativeTo: this.route });
   }
 }

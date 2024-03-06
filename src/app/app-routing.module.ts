@@ -10,8 +10,21 @@ const routes: Routes = [
   {
     path: 'private',
     component: PrivateBaseComponent,
-    children: [{ path: 'add-student', component: AddStudentComponent }],
+    children: [
+      {
+        path: 'student',
+        loadChildren: () =>
+          import('./student/student.module').then((m) => m.StudentModule),
+      },
+      {
+        path: 'course',
+        loadChildren: () =>
+          import('./courses/courses.module').then((m) => m.CoursesModule),
+      },
+    ],
   },
+
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({
