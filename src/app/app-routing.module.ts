@@ -3,10 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PrivateBaseComponent } from './private-base/private-base.component';
 import { AddStudentComponent } from './student/add-student/add-student.component';
+import { PublicBaseComponent } from './public-base/public-base.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
   {
     path: 'private',
     component: PrivateBaseComponent,
@@ -23,8 +22,19 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'public',
+    component: PublicBaseComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+    ],
+  },
+  { path: '', redirectTo: 'public/login', pathMatch: 'full' },
 
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/public/login' },
 ];
 
 @NgModule({
